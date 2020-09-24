@@ -22,7 +22,6 @@ import pkg_resources
 import platform
 
 import six
-from six.moves.collections_abc import Mapping
 from requests.adapters import HTTPAdapter
 
 from .errors import ResponseError, EntryCreatedError, OperationCompletionError
@@ -438,8 +437,7 @@ class ReportPortalService(object):
                 del log_item["attachment"]
 
             if attachment:
-                if not isinstance(attachment, Mapping):
-                    attachment = {"data": attachment}
+                attachment = {"data": attachment}
 
                 name = attachment.get("name", str(uuid.uuid4()))
                 log_item["file"] = {"name": name}
