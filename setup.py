@@ -4,8 +4,12 @@ from setuptools import setup, find_packages
 
 __version__ = '5.0.5'
 
-with open('requirements.txt') as f:
-    requirements = f.read().splitlines()
+requirements = [
+    'requests==2.22.0',
+    'pytest==5.1.2',
+    'six==1.12.0',
+    'delayed-assert',
+]
 
 setup(
     name='reportportal-client',
